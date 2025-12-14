@@ -1,0 +1,58 @@
+{
+  "name": "blog-api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway for the Blog microservices platform. Handles request routing, authentication validation, rate limiting, logging, and event publishing. Built with Express and TypeScript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only --env-file=.env src/index.ts",
+    "dev:all": "docker compose -f docker-compose.dev.yml up -d && pnpm dev",
+    "dev:stop": "docker compose -f docker-compose.dev.yml down",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:all": "docker compose -f docker-compose.prod.yml up -d",
+    "start:stop": "docker compose -f docker-compose.prod.yml down",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "api-gateway",
+    "microservices",
+    "express",
+    "typescript",
+    "reverse-proxy",
+    "rate-limiting",
+    "kafka",
+    "redis",
+    "jwt",
+    "rest-api"
+  ],
+  "author": "Sachin Shakya <sachin.shakya@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sachinshakya/blog-api-gateway.git"
+  },
+  "homepage": "https://github.com/sachinshakya/blog-api-gateway#readme",
+  "packageManager": "pnpm@10.18.3",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "http-proxy-middleware": "^3.0.5",
+    "morgan": "^1.10.1",
+    "redis": "^4.7.0",
+    "uuid": "^13.0.0",
+    "winston": "^3.18.3",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^22.10.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
